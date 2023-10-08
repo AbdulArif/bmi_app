@@ -38,6 +38,8 @@ class _MyHomePageState extends State<MyHomePage> {
   var ftController = TextEditingController();
   var inController = TextEditingController();
   String bmi = '';
+  String msg = '';
+  var bgColor = Colors.indigo.shade300;
 
   void calculateBMI() {
     double wt = double.parse(wtController.text);
@@ -48,8 +50,18 @@ class _MyHomePageState extends State<MyHomePage> {
       bmi = "Please Enter all fields";
     } else {
       double heightMeters = ((ft * 12) + inch) * (0.0254); // convert to meters
+      var result = wt / (heightMeters * heightMeters);
+      if (result > 25) {
+        msg = "You are Overweight";
+        bgColor = Colors.orange.shade200;
+      } else if (result < 18) {
+        msg = "You are Underweight";
+        bgColor = Colors.red.shade200;
+      } else {
+        msg = "You are Healthy";
+        bgColor = Colors.green.shade200;
+      }
       setState(() {
-        var result = wt / (heightMeters * heightMeters);
         bmi = result.toStringAsFixed(2).toString();
       });
     }
@@ -64,6 +76,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Center(
         child: Container(
+            color: bgColor,
             width: 300,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -104,8 +117,10 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
                 ElevatedButton(
                     onPressed: calculateBMI, child: Text('Calculate BMI')),
-                SizedBox(height: 16),
-                Text('Your BMI is ${bmi}'),
+                SizedBox(
+                  height: 16,
+                ),
+                Text('${msg}\n' 'Your BMI is ${bmi}'),
               ],
             )),
       ),

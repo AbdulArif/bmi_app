@@ -1,8 +1,6 @@
 // ignore_for_file: prefer_final_fields, prefer_const_constructors
 
-import 'dart:html';
 import 'package:flutter/material.dart';
-import 'dart:developer' as devLog;
 
 void main() {
   runApp(const MyApp());

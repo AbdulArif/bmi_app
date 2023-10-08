@@ -74,55 +74,57 @@ class _MyHomePageState extends State<MyHomePage> {
         // backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text("BMI Calculator"),
       ),
-      body: Center(
-        child: Container(
-            color: bgColor,
-            width: 300,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'BMI',
-                  style: TextStyle(fontSize: 34, fontWeight: FontWeight.w700),
-                ),
-                SizedBox(
-                  height: 11,
-                ),
-                TextField(
-                  controller: wtController,
-                  decoration: InputDecoration(
-                      label: Text('Enter your Weight(in kgs)'),
-                      prefixIcon: Icon(Icons.line_weight)),
-                  keyboardType: TextInputType.number,
-                ),
-                SizedBox(
-                  height: 11,
-                ),
-                TextField(
-                  controller: ftController,
-                  decoration: InputDecoration(
-                      label: Text('Enter your height(in feet)'),
-                      prefixIcon: Icon(Icons.height)),
-                  keyboardType: TextInputType.number,
-                ),
-                TextField(
-                  controller: inController,
-                  decoration: InputDecoration(
-                      label: Text('Enter your height (innch)'),
-                      prefixIcon: Icon(Icons.height)),
-                  keyboardType: TextInputType.number,
-                ),
-                SizedBox(
-                  height: 11,
-                ),
-                ElevatedButton(
-                    onPressed: calculateBMI, child: Text('Calculate BMI')),
-                SizedBox(
-                  height: 16,
-                ),
-                Text('${msg}\n' 'Your BMI is ${bmi}'),
-              ],
-            )),
+      body: Container(
+        color: bgColor,
+        child: Center(
+          child: Container(
+              width: 300,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'BMI',
+                    style: TextStyle(fontSize: 34, fontWeight: FontWeight.w700),
+                  ),
+                  SizedBox(
+                    height: 11,
+                  ),
+                  TextField(
+                    controller: wtController,
+                    decoration: InputDecoration(
+                        label: Text('Enter your Weight(in kgs)'),
+                        prefixIcon: Icon(Icons.line_weight)),
+                    keyboardType: TextInputType.number,
+                  ),
+                  SizedBox(
+                    height: 11,
+                  ),
+                  TextField(
+                    controller: ftController,
+                    decoration: InputDecoration(
+                        label: Text('Enter your height(in feet)'),
+                        prefixIcon: Icon(Icons.height)),
+                    keyboardType: TextInputType.number,
+                  ),
+                  TextField(
+                    controller: inController,
+                    decoration: InputDecoration(
+                        label: Text('Enter your height (innch)'),
+                        prefixIcon: Icon(Icons.height)),
+                    keyboardType: TextInputType.number,
+                  ),
+                  SizedBox(
+                    height: 11,
+                  ),
+                  ElevatedButton(
+                      onPressed: calculateBMI, child: Text('Calculate BMI')),
+                  SizedBox(
+                    height: 16,
+                  ),
+                  Text('${msg}\n' 'Your BMI is ${bmi}'),
+                ],
+              )),
+        ),
       ),
     );
   }

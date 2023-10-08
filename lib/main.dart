@@ -39,7 +39,7 @@ class _MyHomePageState extends State<MyHomePage> {
   var inController = TextEditingController();
   String bmi = '';
   String msg = '';
-  var bgColor = Colors.indigo.shade300;
+  var bgColor = Colors.purple.shade300;
 
   void calculateBMI() {
     double wt = double.parse(wtController.text);
